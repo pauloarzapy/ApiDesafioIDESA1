@@ -3,7 +3,7 @@ DESAFIO IDESA
 Descargar o clonar el proyecto de:
 https://github.com/pauloarzapy/ApiDesafioIDESA1
 
-CRACION DE LA BASE DE DATOS:
+CREACION DE LA BASE DE DATOS:
 ----------------------------
 La base de datos utilizada para todo el proyecto se llama "biblioteca" en el motor de base de datos MySql Server.
 Se adjunta un archivo bibliotecaDESAFIO1.sql en la carpeta del proyecto que contiene las instrucciones para la creación 
