@@ -1,60 +1,55 @@
 DESAFIO IDESA
 --------------
+Descargar o clonar el proyecto de:
+https://github.com/pauloarzapy/ApiDesafioIDESA1
 
+CRACION DE LA BASE DE DATOS:
+----------------------------
 La base de datos utilizada para todo el proyecto se llama "biblioteca" en el motor de base de datos MySql Server.
+Se adjunta un archivo bibliotecaDESAFIO1.sql en la carpeta del proyecto que contiene las instrucciones para la creación 
+de los objetos de la base de datos y los datos utilizados durante la creación y prueba del proyecto.
+Correr el script de creación de la base de datos.
 
-COMANDOS PARA CREAR EL PROYECTO:
---------------------------------
-composer create-project laravel/laravel ApiDesafioIDESA1
-cd ApiDesafioIDESA1
-php artisan make:migration create_authors_table
-php artisan migrate
-php artisan make:model Author
-php artisan make:model Book
-php artisan make:controller AuthorController --model=Author
-php artisan make:controller BookController --model=Book
-php artisan make:seeder AuthorsSeeder       
-php artisan make:factory AuthorFactory
-php artisan db:seed --class=AuthorsSeeder   //Ejecuta los INSERTS en la tabla authors, pero solamente ejecutar BookSeeder y este ejecutará AuthorsSeeder
-php artisan make:seeder BooksSeeder
-php artisan make:factory BookFactory
-php artisan db:seed --class=BooksSeeder 	//Ejecuta los INSERTS en la tabla books
-php artisan make:controller AuthController
-php artisan migrate
-php artisan install:api
-php artisan migrate
-composer require laravel/sanctum
-php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
-php artisan migrate
+CONFIGURACION DEL PROYECTO:
+---------------------------
+En algun programa de linea de comandos ir hasta la carpeta del proyecto y ejecutar el siguiente comando para instalar las dependencias:
+
+composer install 
+
+Abrir el proyecto en algun IDE o software de edicion de archivos; si no se encuentran los archivos, agregar a la carpeta del proyecto:
+Estos son los datos necesarios para la ejecucion del proyecto:
+
+En el archivo .env:
+--------------------
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=biblioteca
+DB_USERNAME=root
+DB_PASSWORD=(el password de su instalacion)
+
+En el archivo phpunit.xml:
+--------------------------
+<env name="DB_CONNECTION" value="mysql"/>
+<env name="DB_DATABASE" value="biblioteca"/>
+
+Levamtar el servidor:
+--------------------
 php artisan serve
 
+PRUEBA DE LA API:
+--------------------
+En el Postman abrir el archivo de coleccion DesafioIDESA1.postman_collection.json proveido en la carpeta del proyecto 
+y ejecutar las llamadas correspondientes para probar la API desarrollada.
 
-COMANDOS PARA EJECUTAR LAS PRUEBAS UNITARIAS:
-----------------------------------------------
-php artisan test tests\Feature\LoginTest.php --filter=test_login
-php artisan test tests\Feature\TestRegistro.php --filter=test_registro
-
-php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_get_authors
-php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_get_authors_id
-php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_post_authors
-php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_put_authors_id
-php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_delete_authors_id
-
-php artisan test tests\Feature\TestApiDesafioBooks.php --filter=test_get_books
-php artisan test tests\Feature\TestApiDesafioBooks.php --filter=test_get_books_id
-php artisan test tests\Feature\TestApiDesafioBooks.php --filter=test_post_books
-php artisan test tests\Feature\TestApiDesafioBooks.php --filter=test_put_books_id
-php artisan test tests\Feature\TestApiDesafioBooks.php --Filter=test_delete_books_id
-
-DESCRIPCION DE LOS ENDPOINTS:
+Descripcion de los endpoints:
 -----------------------------
-
 Login:
-------
+-----
 Endpoint: http://localhost:8000/api/auth/login
----------
+--------
 Metodo: POST
--------
+------
 Parametros:
 ----------
 {
@@ -76,7 +71,7 @@ Registrar un nuevo usuario:
 Endpoint: http://localhost:8000/api/auth/register
 ---------
 Metodo: POST
---------
+------
 Parametros:
 ----------
 {
@@ -87,7 +82,7 @@ Parametros:
 }
 
 Respuesta:
-----------
+---------
 {
 "status":true,
 "message":"Validaciones correctas.",
@@ -95,15 +90,15 @@ Respuesta:
 }
 
 OBSERVACION:
----------------
+-----------
 Para los siguientes EndPoints se debe agregar en los Headers el parametro Authorization con el valor Bearer + " " + token obtenido al ejecutar el login.
 
 Listado de autores:
-----------------------
+------------------
 Endpoint: http://localhost:8000/api/authors
 ----------
 Metodo: GET
--------
+------
 Respuesta:
 ----------
 {
@@ -130,11 +125,11 @@ Respuesta:
 }
 
 Listado datos de un autor especifico:
------------------------------------------
+-------------------------------------
 Endpoint: http://localhost:8000/api/authors/2
 ---------
 Metodo: GET
----------
+------
 Parametro: id de algun autor
 ----------
 Respuesta:
@@ -154,11 +149,11 @@ Respuesta:
 
 
 Creacion de un nuevo autor:
--------------------------------
+--------------------------
 Endpoint: http://localhost:8000/api/authors
----------
+--------
 Metodo: POST
----------
+------
 Parametros:
 ----------
 {
@@ -168,7 +163,7 @@ Parametros:
 }
 
 Respuesta:
--------------
+---------
 {
     "status": true,
     "message": "Datos especificados correctos.",
@@ -178,11 +173,11 @@ Respuesta:
 Modificacion de datos de un autor:
 ----------------------------------
 Endpoint: http://localhost:8000/api/authors/17
----------
-Metodo: PUT
 --------
+Metodo: PUT
+------
 Parametros:
---------------
+----------
 {
 "name": "Ivor Horton Fernandez",
 "birthdate": "24-05-1970",
@@ -190,7 +185,7 @@ Parametros:
 }
 
 Respuesta:
-----------
+---------
 {
     "status": true,
     "message": "Datos modificados del Autor",
@@ -205,15 +200,15 @@ Respuesta:
 }
 
 Eliminacion de un autor:
---------------------------
+-----------------------
 Endpoint: http://localhost:8000/api/authors/17
------------
+--------
 Metodo: DELETE
----------
+------
 Parametro: id de algun autor
-----------
+---------
 Respuesta:
------------
+---------
 {
     "status": true,
     "message": "Autor eliminado correctamente",
@@ -228,13 +223,13 @@ Respuesta:
 }
 
 Listado de libros:
-----------------------
+-----------------
 Endpoint: http://localhost:8000/api/books
-----------
+--------
 Metodo: GET
----------
+------
 Respuesta:
-------------
+---------
 {
     "status": true,
     "message": "Listado de Libros",
@@ -261,9 +256,9 @@ Respuesta:
 }
 
 Listado datos de un libro especifico:
----------------------------------------
+--------------------------------------
 Endpoint: http://localhost:8000/api/books/5
-----------
+--------
 Metodo: GET
 -------
 Parametro: id de algun libro
@@ -289,7 +284,7 @@ Creacion de un nuevo libro:
 Endpoint: http://localhost:8000/api/books
 -----------
 Metodo: POST
----------
+------
 Parametros:
 -----------
 {
@@ -300,7 +295,7 @@ Parametros:
 }
 
 Respuesta:
------------
+----------
 {
     "status": true,
     "message": "Datos especificados correctos.",
@@ -312,7 +307,7 @@ Modificacion de datos de un libro:
 Endpoint: http://localhost:8000/api/books/12
 -----------
 Metodo: PUT
---------
+------
 Parametros:
 -----------
 {
@@ -323,7 +318,7 @@ Parametros:
 }
 
 Respuesta:
-------------
+----------
 {
     "status": true,
     "message": "Datos modificados del libro",
@@ -339,7 +334,7 @@ Respuesta:
 }
 
 Eliminacion de un libro:
----------------------------
+------------------------
 Endpoint: http://localhost:8000/api/authors/17
 ---------
 Metodo: DELETE
@@ -362,10 +357,51 @@ Respuesta:
     }
 }
 
-En la carpeta del proyecto tambien se adjunta un archivo bibliotecaDESAFIO1.sql con la base de datos y los datos utilizados.
+PRUEBAS UNITARIAS:
+-------------------
+Comandos:
+----------
+php artisan test tests\Feature\LoginTest.php --filter=test_login
+php artisan test tests\Feature\TestRegistro.php --filter=test_registro
 
-El proyecto se puede descargar de:
-https://github.com/pauloarzapy/ApiDesafioIDESA1
+php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_get_authors
+php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_get_authors_id
+php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_post_authors
+php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_put_authors_id
+php artisan test tests\Feature\TestApiDesafioAuthors.php --filter=test_delete_authors_id
 
-email:arzapaulo@gmail.com
-telefono:0982219109 (tambien alias para transferencias :))
+php artisan test tests\Feature\TestApiDesafioBooks.php --filter=test_get_books
+php artisan test tests\Feature\TestApiDesafioBooks.php --filter=test_get_books_id
+php artisan test tests\Feature\TestApiDesafioBooks.php --filter=test_post_books
+php artisan test tests\Feature\TestApiDesafioBooks.php --filter=test_put_books_id
+php artisan test tests\Feature\TestApiDesafioBooks.php --Filter=test_delete_books_id
+
+
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+COMANDOS UTILIZADOS PARA CREAR EL PROYECTO:
+--------------------------------------------
+composer create-project laravel/laravel ApiDesafioIDESA1
+cd ApiDesafioIDESA1
+php artisan make:migration create_authors_table
+php artisan migrate
+php artisan make:model Author
+php artisan make:model Book
+php artisan make:controller AuthorController --model=Author
+php artisan make:controller BookController --model=Book
+php artisan make:seeder AuthorsSeeder       
+php artisan make:factory AuthorFactory
+php artisan db:seed --class=AuthorsSeeder   //Ejecuta los INSERTS en la tabla authors, pero solamente ejecutar BookSeeder y este ejecutará AuthorsSeeder
+php artisan make:seeder BooksSeeder
+php artisan make:factory BookFactory
+php artisan db:seed --class=BooksSeeder 	//Ejecuta los INSERTS en la tabla books
+php artisan make:controller AuthController
+php artisan migrate
+php artisan install:api
+php artisan migrate
+composer require laravel/sanctum
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+php artisan migrate
+php artisan serve
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
