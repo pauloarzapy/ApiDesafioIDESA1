@@ -94,6 +94,10 @@ Respuesta:
 "data":"Registro exitoso"
 }
 
+OBSERVACION:
+---------------
+Para los siguientes EndPoints se debe agregar en los Headers el parametro Authorization con el valor Bearer + " " + token obtenido al ejecutar el login.
+
 Listado de autores:
 ----------------------
 Endpoint: http://localhost:8000/api/authors
