@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "69089cfe-d1b3-44ff-b000-0a2ad9a5a1f2",
+		"name": "DesafioIDESA1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29596267"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/auth/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"email\":\"andrea@desafiox.com\",\r\n\"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/auth/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\":\"Paulo Arza\",\r\n\"email\":\"arzapaulo@gmail.com\",\r\n\"password\":\"987654321\",\r\n\"passwordConfirm\":\"987654321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/authors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/authors/5",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/authors/5"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/authors",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"Antoine de Saint Exupery\",\r\n\"birthdate\": \"22-02-1900\",\r\n\"nationality\": \"Frances\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/authors/20",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"Antoine de Saint-Exupery\",\r\n\"birthdate\": \"24-02-1900\",\r\n\"nationality\": \"Frances\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/authors/20"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/authors/20",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/authors/20"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/books",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/books"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/books/6",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/books/6"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/books",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\":\"Java Programing\",\r\n\"isbn\": \"5454-7891-3541\",\r\n\"published_date\":\"14-05-2002\",\r\n\"author_id\":\"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/books"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/books/14",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\":\"Java Programing 2\",\r\n\"isbn\": \"5454-7891-354771\",\r\n\"published_date\":\"10-12-2002\",\r\n\"author_id\":\"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/books/14"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/books/14",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 51|9ahgtu88l02P2kkoFsr6QZMdNG7YwHXn63CfEEya32fa42fd",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/books/14"
+			},
+			"response": []
+		}
+	]
+}
