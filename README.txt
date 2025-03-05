@@ -1,6 +1,8 @@
 DESAFIO IDESA
 --------------
 
+La base de datos utilizada para todo el proyecto se llama "biblioteca" en el motor de base de datos MySql Server.
+
 COMANDOS PARA CREAR EL PROYECTO:
 --------------------------------
 composer create-project laravel/laravel ApiDesafioIDESA1
